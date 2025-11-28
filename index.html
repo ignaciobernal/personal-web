@@ -7,10 +7,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;800&display=swap" rel="stylesheet" />
   <style>
     /* =========================================
-       CONFIGURACIÓN
+       CONFIGURACIÓN DE TAMAÑOS
        ========================================= */
     :root {
-      --tamano-elementos: 180px; /* Tamaño unificado para Logo y Foto */
+      --tamano-logo: 100px; 
+      --tamano-foto: 180px; 
+
       --bg-color: #050505;
       --text-color: #ffffff;
       --grid-color: rgba(255, 255, 255, 0.05);
@@ -67,7 +69,7 @@
 
     .container {
       display: flex;
-      flex-direction: row-reverse; /* Bloque visual a la derecha, texto a la izquierda */
+      flex-direction: row-reverse; 
       align-items: center;
       justify-content: space-between;
       gap: 4rem;
@@ -76,19 +78,17 @@
       animation: slideUpFade 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
     }
 
-    /* =========================================
-       NUEVO BLOQUE: GRUPO VISUAL (LOGO + FOTO)
-       ========================================= */
+    /* GRUPO VISUAL */
     .visuals-group {
       display: flex;
       align-items: center;
-      gap: 2rem; /* Espacio entre logo y foto */
+      gap: 2rem; 
       position: relative;
     }
 
-    /* ESTILO DEL LOGO CENTRAL */
+    /* LOGO CENTRAL */
     .central-logo {
-      height: var(--tamano-elementos);
+      height: var(--tamano-logo);
       width: auto;
       object-fit: contain;
       transition: transform 0.3s ease;
@@ -98,17 +98,16 @@
       transform: scale(1.05);
     }
 
-    /* ESTILO DE LA FOTO */
+    /* FOTO PERFIL */
     .profile-pic {
-      width: var(--tamano-elementos);
-      height: var(--tamano-elementos);
+      width: var(--tamano-foto);
+      height: var(--tamano-foto);
       border-radius: 50%;
       object-fit: cover;
-      /* Blanco y negro por defecto */
       filter: grayscale(100%) contrast(110%);
       border: 2px solid rgba(255,255,255,0.2);
       transition: all 0.5s ease;
-      display: block; /* Elimina espacios fantasma */
+      display: block; 
     }
 
     .profile-pic:hover {
@@ -118,7 +117,7 @@
       box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
     }
 
-    /* SECCIÓN DE TEXTO (IZQUIERDA) */
+    /* TEXTO */
     .hero {
       flex: 1;
       display: flex;
@@ -139,11 +138,39 @@
     .hero p {
       font-size: 1.2rem;
       color: #888;
-      margin-bottom: 2.5rem;
+      margin-bottom: 1.5rem; 
       font-weight: 400;
       max-width: 500px;
       border-left: 1px solid #333;
       padding-left: 1.5rem;
+    }
+
+    /* =========================================
+       LOGOS UNIVERSIDADES (B/N a COLOR)
+       ========================================= */
+    .uni-logos {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+      padding-left: 1.5rem;
+    }
+
+    .uni-img {
+      height: 35px;
+      width: auto;
+      object-fit: contain;
+      transition: all 0.3s ease;
+      opacity: 0.7; 
+      /* Por defecto en blanco y negro */
+      filter: grayscale(100%); 
+    }
+
+    .uni-img:hover {
+      opacity: 1;
+      transform: scale(1.1);
+      /* Al pasar el ratón, recuperan el color */
+      filter: grayscale(0%); 
     }
 
     /* REDES SOCIALES */
@@ -220,19 +247,18 @@
         padding-left: 0;
       }
 
-      /* Ajustes para el grupo visual en móvil */
+      .uni-logos {
+        justify-content: center;
+        padding-left: 0;
+      }
+
       .visuals-group {
         gap: 1.5rem;
       }
-      
-      /* Opcional: Si en móvil prefieres que estén uno encima del otro, descomenta esto:
-      .visuals-group { flex-direction: column; }
-      .visuals-group::after { width: 80%; height: 1px; top: 50%; left: 10%; transform: none; } 
-      */
 
-      /* Reducimos un poco el tamaño en móvil */
       :root {
-        --tamano-elementos: 140px;
+        --tamano-logo: 80px;
+        --tamano-foto: 140px;
       }
     }
   </style>
@@ -256,6 +282,15 @@
         <h1>IGNACIO<br>BERNAL MEDINA</h1>
         <p>Estudiante de Ingeniería Aeroespacial en la Universidad de Sevilla.</p>
         
+        <div class="uni-logos">
+           <a href="https://etsi.us.es/" target="_blank" aria-label="ETSI Sevilla">
+             <img src="https://raw.githubusercontent.com/ignaciobernal/web/refs/heads/main/media/ETSI-logo%20(1).png" alt="ETSI Logo" class="uni-img" />
+           </a>
+           <a href="https://tecnico.ulisboa.pt/en" target="_blank" aria-label="Técnico Lisboa">
+             <img src="https://raw.githubusercontent.com/ignaciobernal/web/refs/heads/main/media/tecnico-logo%20(1).png" alt="IST Logo" class="uni-img" />
+           </a>
+        </div>
+
         <div class="social-icons">
           <a href="https://github.com/ignaciobernal" target="_blank" aria-label="GitHub">
             <svg viewBox="0 0 24 24">
